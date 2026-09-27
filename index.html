@@ -27,20 +27,21 @@
   ::selection { background: var(--accent); color: var(--bg); }
   .wrap { max-width: 1280px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
   h1, h2 { font-family: 'Fraunces', serif; font-weight: 600; margin: 0; }
-  .nav { display:flex; align-items:center; justify-content:space-between; padding: 24px; border-bottom: 1px solid var(--line); gap: 16px; flex-wrap: wrap; }
+  .nav { display:flex; align-items:center; justify-content:space-between; padding: 24px; border-bottom: 1px solid var(--line); gap: 16px; flex-wrap: wrap; position: sticky; top: 0; background: var(--bg); z-index: 10; }
   .nav-links { display:flex; gap:28px; font-size:15px; font-weight:500; flex-wrap: wrap; }
   .hero { display:flex; align-items:center; gap:56px; padding: 64px 24px; background: var(--ink); flex-wrap: wrap; }
   .hero-copy { flex: 1 1 420px; display:flex; flex-direction:column; gap:22px; }
   .hero h1 { font-size: clamp(36px, 5vw, 60px); line-height:1.06; color: var(--bg); }
   .hero p { margin:0; max-width:480px; font-size:18px; line-height:1.6; color:rgba(250,247,240,0.72); }
   .hero-actions { display:flex; gap:14px; flex-wrap: wrap; }
-  .hero-photo { flex: 1 1 320px; min-height: 320px; border-radius:20px; background: rgba(250,247,240,0.06); border:1px dashed rgba(250,247,240,0.28); display:flex; align-items:center; justify-content:center; text-align:center; }
+  .hero-photo { flex: 1 1 320px; min-height: 320px; aspect-ratio: 4/3; border-radius:20px; overflow:hidden; background: rgba(250,247,240,0.06); border:1px solid rgba(250,247,240,0.15); }
+  .hero-photo img { width:100%; height:100%; object-fit:cover; display:block; }
   .badge { display:inline-flex; align-self:flex-start; align-items:center; gap:8px; padding:7px 16px; border-radius:100px; border:1px solid rgba(250,247,240,0.25); font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(250,247,240,0.75); }
   section { padding: 72px 24px; }
   .eyebrow { font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color: var(--accent); }
   .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:28px; margin-top: 40px; }
   .card { padding:32px; border-radius:16px; background: var(--card); display:flex; flex-direction:column; gap:14px; }
-  .icon { width:44px; height:44px; border-radius:12px; background: var(--accent); display:flex; align-items:center; justify-content:center; }
+  .icon { width:44px; height:44px; border-radius:12px; background: var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink: 0; }
   .card-title { font-size:18px; font-weight:600; }
   .card-body { font-size:15px; line-height:1.6; color: var(--muted); }
   .next { padding: 48px; border-radius:24px; background: var(--ink); display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap: wrap; }
@@ -48,15 +49,35 @@
   .next-date { font-family:'Fraunces',serif; font-weight:600; font-size:30px; color: var(--bg); margin-top: 12px; }
   .next-loc { font-size:16px; color:rgba(250,247,240,0.72); line-height:1.6; margin-top: 14px; }
   .gallery-head { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-  .gallery-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap:20px; margin-top: 36px; }
-  .tank { aspect-ratio: 1; border-radius:14px; background: var(--card); border:1px dashed var(--line); display:flex; align-items:center; justify-content:center; text-align:center; }
+  .gallery-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-top: 36px; }
+  .tank { aspect-ratio: 1; border-radius:14px; overflow:hidden; background: var(--card); border:1px solid var(--line); position: relative; }
+  .tank img { width:100%; height:100%; object-fit:cover; display:block; }
+  .tank .cap { position:absolute; left:0; right:0; bottom:0; padding:14px 16px 12px; font-size:13px; font-weight:500; color:#fff; background:linear-gradient(to top, rgba(0,0,0,0.62), rgba(0,0,0,0)); }
+  .steps { counter-reset: step; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:28px; margin-top: 44px; }
+  .step { position:relative; padding: 30px 26px 26px; border-radius:16px; border:1px solid var(--line); }
+  .step-num { font-family:'Fraunces',serif; font-size:34px; font-weight:700; color: var(--accent); line-height:1; }
+  .step-title { margin-top:16px; font-size:17px; font-weight:600; }
+  .step-body { margin-top:8px; font-size:14.5px; line-height:1.6; color: var(--muted); }
+  .host { display:flex; gap:48px; align-items:center; flex-wrap:wrap; }
+  .host-photo { flex: 0 0 260px; width:260px; height:260px; border-radius:20px; overflow:hidden; }
+  .host-photo img { width:100%; height:100%; object-fit:cover; display:block; }
+  .host-copy { flex: 1 1 360px; }
+  .host-copy p { font-size:16px; line-height:1.7; color: var(--muted); margin: 14px 0 0; }
+  .faq { max-width: 800px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--line); padding: 26px 0; }
+  .faq-item:first-child { padding-top: 0; }
+  .faq-q { font-size:17px; font-weight:600; margin:0; }
+  .faq-a { margin: 10px 0 0; font-size:15px; line-height:1.65; color: var(--muted); }
   .join { background: var(--card); display:flex; flex-direction:column; align-items:center; text-align:center; gap:18px; }
   .join p { margin:0; max-width:480px; font-size:16px; color: var(--muted); line-height:1.6; }
   .join form { display:flex; gap:12px; margin-top:8px; flex-wrap: wrap; justify-content:center; }
   .join input { width:280px; max-width: 70vw; padding:15px 20px; border-radius:100px; border:1px solid var(--line); font-size:15px; font-family:inherit; background: var(--bg); }
-  .sponsors { display:flex; flex-direction:column; align-items:center; gap:24px; }
-  .sponsor-row { display:flex; gap:48px; align-items:center; flex-wrap:wrap; justify-content:center; }
-  .sponsor { font-family:'Fraunces',serif; font-weight:600; font-size:19px; color: var(--muted); }
+  .sponsors { display:flex; flex-direction:column; align-items:center; gap:36px; }
+  .sponsor-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:24px; width:100%; max-width: 1000px; }
+  .sponsor-card { padding:26px; border-radius:14px; background: var(--card); text-align:left; }
+  .sponsor-name { font-family:'Fraunces',serif; font-weight:600; font-size:18px; }
+  .sponsor-role { font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color: var(--accent); margin-top:4px; }
+  .sponsor-body { margin-top:10px; font-size:14px; line-height:1.6; color: var(--muted); }
   footer { padding: 28px 24px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; font-size:14px; color: var(--muted); flex-wrap: wrap; gap: 12px; }
   footer .links { display:flex; gap:22px; }
   @media (max-width: 640px) {
@@ -77,8 +98,10 @@
   </div>
   <div class="nav-links">
     <a class="link" href="#about">About</a>
+    <a class="link" href="#how">How it works</a>
     <a class="link" href="#next">Next Meetup</a>
-    <a class="link" href="#gallery">Tank Gallery</a>
+    <a class="link" href="#gallery">The Showroom</a>
+    <a class="link" href="#faq">FAQ</a>
     <a class="link" href="#join">Join</a>
   </div>
   <a href="#join" class="btn" style="background:var(--accent); color:var(--bg); padding:11px 20px; border-radius:100px; font-size:14px; font-weight:600;">RSVP for the next one</a>
@@ -95,15 +118,16 @@
       </div>
     </div>
     <div class="hero-photo">
-      <span style="color:rgba(250,247,240,0.45); font-size:14px; padding:0 40px;">[ Photo: aquascapers &amp; coffee cups at a past Hakkai workshop ]</span>
+      <img src="images/roger-team.jpg" alt="Aquascapers gathered around a tank at Pet Zone's Convoy showroom">
     </div>
   </div>
 </div>
 
 <section id="about" class="wrap">
-  <div style="max-width:640px;">
+  <div style="max-width:680px;">
     <div class="eyebrow">The concept</div>
     <h2 style="margin-top:12px; font-size:clamp(28px,4vw,36px); line-height:1.2;">Same energy as cars &amp; coffee. Just swap the horsepower for hardscape.</h2>
+    <p style="margin-top:18px; font-size:16px; line-height:1.7; color:var(--muted);">Cars-and-coffee meetups work because nobody has to trailer their car anywhere — you just show up. Fish &amp; Coffee borrows that same idea for aquascaping: instead of everyone hauling glass, soil, and livestock across town, the showroom's own floor tanks and Hakkai builds do the showing off. You bring the parts that travel easily — plant trims, dry hardscape, a spare piece of gear — and a cup of coffee gives everyone a reason to actually stand around and talk instead of just scrolling past each other's tank shots online.</p>
   </div>
   <div class="cards">
     <div class="card">
@@ -114,7 +138,7 @@
     <div class="card">
       <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 9H16V15C16 17.2 14.2 19 12 19H8C5.8 19 4 17.2 4 15V9Z" stroke="var(--ink)" stroke-width="1.8"/><path d="M16 10H18C19.1 10 20 10.9 20 12C20 13.1 19.1 14 18 14H16" stroke="var(--ink)" stroke-width="1.8"/><path d="M7 9V6M10 9V6" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/></svg></div>
       <div class="card-title">Trade trims &amp; coffee</div>
-      <div class="card-body">Bring plant cuttings, dry goods, or DIY hardscape to swap — easy to carry in, no glass or livestock required. Coffee's courtesy of [Restaurant Name], a friend of the shop.</div>
+      <div class="card-body">Bring plant cuttings, dry goods, or DIY hardscape to swap — easy to carry in, no glass or livestock required. Coffee's courtesy of a neighboring restaurant, a friend of the shop.</div>
     </div>
     <div class="card">
       <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 4L14.2 9.3L20 10L15.6 13.6L17 19.2L12 16.1L7 19.2L8.4 13.6L4 10L9.8 9.3L12 4Z" stroke="var(--ink)" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
@@ -123,6 +147,34 @@
     </div>
   </div>
 </section>
+
+<section id="how" class="wrap" style="padding-top:0;">
+  <div class="eyebrow">How it works</div>
+  <h2 style="margin-top:12px; font-size:clamp(26px,3.6vw,32px); max-width:600px;">Four steps, zero pressure.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-title">Show up</div>
+      <div class="step-body">No RSVP required, no ticket to print. Roll up to Pet Zone on Convoy St whenever the next date's posted and walk in.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-title">Grab a coffee</div>
+      <div class="step-body">Coffee's provided free for the morning — pour one, find a spot near the tanks, and settle in.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-title">Browse &amp; trade</div>
+      <div class="step-body">Walk the showroom's floor tanks and Hakkai builds. If you brought trims, dry hardscape, or gear to swap, this is when it happens.</div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-title">Talk shop</div>
+      <div class="step-body">Ask questions, compare notes, meet the rest of San Diego's aquascaping crowd. Stay ten minutes or the whole morning.</div>
+    </div>
+  </div>
+</section>
+
 <section id="next" class="wrap" style="padding-top:0;">
   <div class="next">
     <div style="flex:1 1 280px;">
@@ -130,20 +182,60 @@
       <div class="next-date">Date TBD</div>
       <div class="next-loc">Pet Zone Tropical Fish — Convoy St, San Diego<br>Free to attend · Coffee provided · Bring trims to swap, or just come look</div>
     </div>
-    <a href="#join" class="btn" style="background:var(--accent); color:var(--ink); padding:16px 30px; border-radius:100px; font-size:15px; font-weight:600; white-space:nowrap;">Add to calendar</a>
+    <a href="#join" class="btn" style="background:var(--accent); color:var(--ink); padding:16px 30px; border-radius:100px; font-size:15px; font-weight:600; white-space:nowrap;">Get notified</a>
   </div>
 </section>
 
 <section id="gallery" class="wrap" style="padding-top:0;">
   <div class="gallery-head">
-    <h2 style="font-size:clamp(26px,3.6vw,32px);">Featured tanks</h2>
-    <div style="font-size:14px; color:var(--muted);">Submitted by the community, refreshed monthly</div>
+    <h2 style="font-size:clamp(26px,3.6vw,32px);">The Convoy showroom</h2>
+    <div style="font-size:14px; color:var(--muted);">Where the meetup happens — floor tanks, hardscape, and the aquascapes on display</div>
   </div>
   <div class="gallery-grid">
-    <div class="tank"><span style="font-size:13px; color:var(--muted); padding:0 16px;">[ tank photo ]</span></div>
-    <div class="tank"><span style="font-size:13px; color:var(--muted); padding:0 16px;">[ tank photo ]</span></div>
-    <div class="tank"><span style="font-size:13px; color:var(--muted); padding:0 16px;">[ tank photo ]</span></div>
-    <div class="tank"><span style="font-size:13px; color:var(--muted); padding:0 16px;">[ tank photo ]</span></div>
+    <div class="tank"><img src="images/roger-storefront.jpg" alt="Pet Zone Tropical Fish storefront on Convoy St"><div class="cap">The storefront</div></div>
+    <div class="tank"><img src="images/roger-tankroom.jpg" alt="Rows of aquariums inside the Pet Zone showroom"><div class="cap">Rows of floor tanks</div></div>
+    <div class="tank"><img src="images/roger-aquascape.jpg" alt="A planted nature aquascape display tank at Pet Zone"><div class="cap">A Hakkai nature aquascape</div></div>
+  </div>
+</section>
+
+<section id="host" class="wrap" style="padding-top:0;">
+  <div class="host">
+    <div class="host-photo">
+      <img src="images/roger-aquascape.jpg" alt="Roger Ma with a nature aquascape at Pet Zone">
+    </div>
+    <div class="host-copy">
+      <div class="eyebrow">Hosted by</div>
+      <h2 style="margin-top:10px; font-size:clamp(24px,3.2vw,30px);">Roger Ma</h2>
+      <p>Roger runs Pet Zone Tropical Fish on Convoy St and started Fish &amp; Coffee to give San Diego's aquascaping community a regular, no-pressure place to gather — the same way car people already had cars-and-coffee. He's also behind the shop's Hakkai nature-aquarium builds, which anchor the showroom you'll walk through at every meetup.</p>
+      <p><a class="link" href="https://meetrogerma.com" style="color:var(--accent); font-weight:600;">More about Roger →</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="wrap" style="padding-top:0;">
+  <div class="eyebrow" style="text-align:center; display:block;">Questions</div>
+  <h2 style="margin-top:12px; margin-bottom:44px; font-size:clamp(26px,3.6vw,32px); text-align:center;">Good to know before you come</h2>
+  <div class="faq">
+    <div class="faq-item">
+      <p class="faq-q">Do I need to bring a tank?</p>
+      <p class="faq-a">No — please don't. The showroom's floor tanks and Hakkai builds are the display for the morning. If you want to bring something, plant trims, dry hardscape, or spare gear are easy to carry and easy to trade.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is there a cost to attend?</p>
+      <p class="faq-a">It's free. Coffee is provided for the morning, courtesy of a neighboring restaurant that's a friend of the shop.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Do I need to RSVP?</p>
+      <p class="faq-a">Not required, but signing up below means you'll get an email with the exact date and location as soon as it's set, plus that month's theme if there is one.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is this beginner-friendly?</p>
+      <p class="faq-a">Yes. It's built for every skill level — first-time tank owners are just as welcome as people running full CO2 setups. Nobody's grading your aquascape.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Where exactly is it?</p>
+      <p class="faq-a">Pet Zone Tropical Fish on Convoy St in San Diego — the same shop that hosts the Hakkai nature-aquarium builds you'll see in the showroom.</p>
+    </div>
   </div>
 </section>
 
@@ -159,11 +251,27 @@
 
 <section class="sponsors">
   <div class="eyebrow" style="color:var(--muted);">Presented by</div>
-  <div class="sponsor-row">
-    <div class="sponsor">Pet Zone Tropical Fish</div>
-    <div class="sponsor">Hakkai</div>
-    <div class="sponsor">Aquascape Supply Co.</div>
-    <div class="sponsor">[Restaurant Name] · Coffee</div>
+  <div class="sponsor-grid">
+    <div class="sponsor-card">
+      <div class="sponsor-name">Pet Zone Tropical Fish</div>
+      <div class="sponsor-role">Host venue</div>
+      <div class="sponsor-body">The Convoy St shop where Fish &amp; Coffee happens every time — floor tanks, showroom, and the space itself.</div>
+    </div>
+    <div class="sponsor-card">
+      <div class="sponsor-name">Hakkai</div>
+      <div class="sponsor-role">Nature aquascapes</div>
+      <div class="sponsor-body">The nature-aquarium builds on display in the showroom, the centerpiece of every meetup.</div>
+    </div>
+    <div class="sponsor-card">
+      <div class="sponsor-name">Aquascape Supply Co.</div>
+      <div class="sponsor-role">Gear &amp; hardscape</div>
+      <div class="sponsor-body">Supplies the hardscape and gear that make it into trade tables and talk-shop conversations.</div>
+    </div>
+    <div class="sponsor-card">
+      <div class="sponsor-name">Coffee, courtesy of a neighbor</div>
+      <div class="sponsor-role">Coffee</div>
+      <div class="sponsor-body">A nearby restaurant and friend of the shop keeps everyone caffeinated each meetup — sponsor name coming soon.</div>
+    </div>
   </div>
 </section>
 
@@ -172,6 +280,7 @@
   <div class="links">
     <a class="link" href="#about">About</a>
     <a class="link" href="#join">Contact</a>
+    <a class="link" href="https://meetrogerma.com">Roger Ma</a>
   </div>
 </footer>
 
