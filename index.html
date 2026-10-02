@@ -47,6 +47,54 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do I need to bring a tank?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — please don't. The showroom's floor tanks and Hakkai builds are the display for the morning. If you want to bring something, plant trims, dry hardscape, or spare gear are easy to carry and easy to trade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a cost to attend?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's free. Coffee is provided, courtesy of a neighboring Convoy restaurant. The coffee partner changes from meetup to meetup, and we'll name them in each event announcement."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to RSVP?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not required, but signing up below means you'll get an email with the exact date and location as soon as it's set, plus that month's theme if there is one."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this beginner-friendly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. It's built for every skill level — first-time tank owners are just as welcome as people running full CO2 setups. Nobody's grading your aquascape."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where exactly is it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pet Zone Tropical Fish on Convoy St in San Diego — the same shop that hosts the Hakkai nature-aquarium builds you'll see in the showroom."
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -125,6 +173,8 @@
   .sponsor-body { margin-top:10px; font-size:14px; line-height:1.6; color: var(--muted); }
   footer { padding: 28px 24px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; font-size:14px; color: var(--muted); flex-wrap: wrap; gap: 12px; }
   footer .links { display:flex; gap:22px; }
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .card:hover, .sponsor-card:hover { transform: none; } .tank:hover img { transform: none; } }
   @media (max-width: 640px) {
     .nav-links { order: 3; width: 100%; justify-content: center; }
   }
