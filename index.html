@@ -179,6 +179,8 @@
   .sponsor-body { margin-top:10px; font-size:14px; line-height:1.6; color: var(--muted); }
   footer { padding: 28px 24px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; font-size:14px; color: var(--muted); flex-wrap: wrap; gap: 12px; }
   footer .links { display:flex; gap:22px; }
+  .skip-link { position:absolute; left:12px; top:-60px; background:var(--ink); color:var(--bg); padding:10px 16px; border-radius:8px; z-index:100; font-weight:600; text-decoration:none; }
+  .skip-link:focus { top:12px; }
   a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .card:hover, .sponsor-card:hover { transform: none; } .tank:hover img { transform: none; } }
   @media (max-width: 640px) {
@@ -187,8 +189,9 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 
-<div class="nav wrap">
+<header class="nav wrap">
   <div style="display:flex; align-items:center; gap:12px;">
     <svg width="28" height="28" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
       <path d="M3 15C3 15 8 6 16 6C22 6 26 10.5 27 15C26 19.5 22 24 16 24C8 24 3 15 3 15Z" stroke="var(--accent)" stroke-width="2"/>
@@ -197,16 +200,17 @@
     </svg>
     <div style="font-family:'Fraunces',serif; font-weight:700; font-size:21px;">Fish &amp; Coffee</div>
   </div>
-  <div class="nav-links">
+  <nav class="nav-links" aria-label="Main">
     <a class="link" href="#about">About</a>
     <a class="link" href="#how">How it works</a>
     <a class="link" href="#next">Next Meetup</a>
     <a class="link" href="#gallery">The Showroom</a>
     <a class="link" href="#faq">FAQ</a>
     <a class="link" href="#join">Join</a>
-  </div>
+  </nav>
   <a href="#join" class="btn" style="background:var(--accent); color:var(--bg); padding:11px 20px; border-radius:100px; font-size:14px; font-weight:600;">RSVP for the next one</a>
-</div>
+</header>
+<main id="main">
 <div class="hero">
   <div class="wrap" style="display:flex; align-items:center; gap:56px; flex-wrap:wrap; padding:0;">
     <div class="hero-copy">
@@ -389,6 +393,7 @@
     </div>
   </div>
 </section>
+</main>
 
 <footer class="wrap">
   <div>© 2026 Fish &amp; Coffee · San Diego</div>
