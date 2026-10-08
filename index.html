@@ -24,7 +24,7 @@
 <meta name="twitter:description" content="A cars-and-coffee style meetup for San Diego aquascapers, hosted at Pet Zone Tropical Fish on Convoy St.">
 <meta name="twitter:image" content="https://fishandcoffee.com/images/showroom-style-guide.jpg">
 <meta name="twitter:image:alt" content="Aquascape display tanks in the Pet Zone Convoy showroom">
-<meta name="theme-color" content="#FAF7F0">
+<meta name="theme-color" content="#f1f4f4">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ctext y='24' font-size='24'%3E%F0%9F%90%A0%3C/text%3E%3C/svg%3E">
 <script type="application/ld+json">
 {
@@ -103,123 +103,241 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:ital,wght@0,700;0,800;1,800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #FAF7F0;
-    --ink: #1F2A24;
-    --accent: #C8722E;
-    --card: #F1ECE0;
-    --line: #E4DDCC;
-    --muted: #6B6455;
+    --blue: #7ab8d9;
+    --orange: #ee6c1a;
+    --ink: #14202b;
+    --paper: #f1f4f4;
+    --asphalt: #2a2d31;
+    --muted: #46535e;
+    --line: #c9d3d6;
+    --gut: 44px;
+    --display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif;
   }
   * { box-sizing: border-box; }
-  body { margin: 0; background: var(--bg); font-family: 'Inter', system-ui, sans-serif; color: var(--ink); }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body { margin: 0; position: relative; background: var(--paper); font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 17px; line-height: 1.6; color: var(--ink); padding-left: var(--gut); overflow-x: hidden; }
+  /* the livery: two stripes down the full left edge */
+  body::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 30px; z-index: 30; background: linear-gradient(90deg, var(--blue) 0 18px, var(--paper) 18px 22px, var(--orange) 22px 30px); pointer-events: none; }
   a { color: inherit; text-decoration: none; }
-  a.link:hover { color: var(--accent); }
-  .btn { display: inline-block; cursor: pointer; }
-  .btn:hover { opacity: 0.88; }
-  ::selection { background: var(--accent); color: var(--bg); }
-  .wrap { max-width: 1280px; margin: 0 auto; padding-left: 24px; padding-right: 24px; }
-  h1, h2 { font-family: 'Fraunces', serif; font-weight: 600; margin: 0; }
-  .nav { display:flex; align-items:center; justify-content:space-between; padding: 24px; border-bottom: 1px solid var(--line); gap: 16px; flex-wrap: wrap; position: sticky; top: 0; background: var(--bg); z-index: 10; }
-  .nav-links { display:flex; gap:28px; font-size:15px; font-weight:500; flex-wrap: wrap; }
-  .hero { display:flex; align-items:center; gap:56px; padding: 64px 24px; background: var(--ink); flex-wrap: wrap; }
-  .hero-copy { flex: 1 1 420px; display:flex; flex-direction:column; gap:22px; }
-  .hero h1 { font-size: clamp(36px, 5vw, 60px); line-height:1.06; color: var(--bg); }
-  .hero p { margin:0; max-width:480px; font-size:18px; line-height:1.6; color:rgba(250,247,240,0.72); }
-  .hero-actions { display:flex; gap:14px; flex-wrap: wrap; }
-  .hero-photo { flex: 1 1 320px; min-height: 320px; aspect-ratio: 4/3; border-radius:20px; overflow:hidden; background: rgba(250,247,240,0.06); border:1px solid rgba(250,247,240,0.15); }
-  .hero-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-  .badge { display:inline-flex; align-self:flex-start; align-items:center; gap:8px; padding:7px 16px; border-radius:100px; border:1px solid rgba(250,247,240,0.25); font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:rgba(250,247,240,0.75); }
-  section { padding: 72px 24px; }
-  .eyebrow { font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color: var(--accent); }
-  .cards { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:28px; margin-top: 40px; }
-  .card { padding:32px; border-radius:16px; background: var(--card); display:flex; flex-direction:column; gap:14px; transition: transform 0.2s ease, box-shadow 0.2s ease; }
-  .card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(31,42,36,0.08); }
-  .icon { width:44px; height:44px; border-radius:12px; background: var(--accent); display:flex; align-items:center; justify-content:center; flex-shrink: 0; }
-  .card-title { font-size:18px; font-weight:600; }
-  .card-body { font-size:15px; line-height:1.6; color: var(--muted); }
-  .next { padding: 48px; border-radius:24px; background: var(--ink); display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap: wrap; }
-  .next-eyebrow { font-size:13px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color: var(--accent); }
-  .next-date { font-family:'Fraunces',serif; font-weight:600; font-size:30px; color: var(--bg); margin-top: 12px; }
-  .next-loc { font-size:16px; color:rgba(250,247,240,0.72); line-height:1.6; margin-top: 14px; }
-  .gallery-head { display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-  .gallery-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:20px; margin-top: 36px; }
-  .tank { aspect-ratio: 1; border-radius:14px; overflow:hidden; background: var(--card); border:1px solid var(--line); position: relative; }
-  .tank img { width:100%; height:100%; object-fit:cover; display:block; transition: transform 0.35s ease; }
-  .tank:hover img { transform: scale(1.05); }
-  .tank .cap { position:absolute; left:0; right:0; bottom:0; padding:14px 16px 12px; font-size:13px; font-weight:500; color:#fff; background:linear-gradient(to top, rgba(0,0,0,0.62), rgba(0,0,0,0)); }
-  .steps { counter-reset: step; display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:28px; margin-top: 44px; }
-  .step { position:relative; padding: 30px 26px 26px; border-radius:16px; border:1px solid var(--line); transition: border-color 0.2s ease; }
-  .step:hover { border-color: var(--accent); }
-  .step-num { font-family:'Fraunces',serif; font-size:34px; font-weight:700; color: var(--accent); line-height:1; }
-  .step-title { margin-top:16px; font-size:17px; font-weight:600; }
-  .step-body { margin-top:8px; font-size:14.5px; line-height:1.6; color: var(--muted); }
-  .host { display:flex; gap:48px; align-items:center; flex-wrap:wrap; }
-  .host-photo { flex: 0 0 260px; width:260px; height:260px; border-radius:20px; overflow:hidden; }
-  .host-photo img { width:100%; height:100%; object-fit:cover; display:block; }
-  .host-copy { flex: 1 1 360px; }
-  .host-copy p { font-size:16px; line-height:1.7; color: var(--muted); margin: 14px 0 0; }
-  .faq { max-width: 800px; margin: 0 auto; }
-  .faq-item { border-bottom: 1px solid var(--line); padding: 26px 0; }
-  .faq-item:first-child { padding-top: 0; }
-  .faq-q { font-size:17px; font-weight:600; margin:0; }
-  .faq-a { margin: 10px 0 0; font-size:15px; line-height:1.65; color: var(--muted); }
-  .join { background: var(--card); display:flex; flex-direction:column; align-items:center; text-align:center; gap:18px; }
-  .join p { margin:0; max-width:480px; font-size:16px; color: var(--muted); line-height:1.6; }
-  .join form { display:flex; gap:12px; margin-top:8px; flex-wrap: wrap; justify-content:center; }
-  .join input { width:280px; max-width: 70vw; padding:15px 20px; border-radius:100px; border:1px solid var(--line); font-size:15px; font-family:inherit; background: var(--bg); }
-  .sponsors { display:flex; flex-direction:column; align-items:center; gap:36px; }
-  .sponsor-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:24px; width:100%; max-width: 1000px; }
-  .sponsor-card { padding:26px; border-radius:14px; background: var(--card); text-align:left; transition: transform 0.2s ease; }
-  .sponsor-card:hover { transform: translateY(-2px); }
-  .sponsor-name { font-family:'Fraunces',serif; font-weight:600; font-size:18px; }
-  .sponsor-role { font-size:12px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color: var(--accent); margin-top:4px; }
-  .sponsor-body { margin-top:10px; font-size:14px; line-height:1.6; color: var(--muted); }
-  footer { padding: 28px 24px; border-top:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; font-size:14px; color: var(--muted); flex-wrap: wrap; gap: 12px; }
-  footer .links { display:flex; gap:22px; }
-  .skip-link { position:absolute; left:12px; top:-60px; background:var(--ink); color:var(--bg); padding:10px 16px; border-radius:8px; z-index:100; font-weight:600; text-decoration:none; }
-  .skip-link:focus { top:12px; }
-  a:focus-visible, button:focus-visible, input:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .card:hover, .sponsor-card:hover { transform: none; } .tank:hover img { transform: none; } }
-  @media (max-width: 640px) {
-    .nav-links { order: 3; width: 100%; justify-content: center; }
+  p a, .link { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; text-decoration-color: var(--orange); }
+  .link:hover, p a:hover { text-decoration-color: var(--ink); }
+  :focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; box-shadow: 0 0 0 6px var(--orange); }
+  ::selection { background: var(--orange); color: var(--ink); }
+  .wrap { max-width: 1200px; margin: 0 auto; padding-left: 28px; padding-right: 28px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 800; margin: 0; line-height: 1; letter-spacing: 0.005em; }
+  p { max-width: 68ch; }
+
+  /* race-number buttons: squared, skewed edges */
+  .btn { display: inline-block; cursor: pointer; background: var(--orange); color: var(--ink); border: 0; font-family: var(--display); font-weight: 800; font-size: 21px; line-height: 1; padding: 15px 30px; clip-path: polygon(14px 0, 100% 0, calc(100% - 14px) 100%, 0 100%); transition: background 0.15s ease; white-space: nowrap; }
+  .btn:hover { background: var(--ink); color: var(--paper); }
+  .btn.small { font-size: 18px; padding: 11px 24px; }
+  .btn.on-blue { background: var(--ink); color: var(--paper); }
+  .btn.on-blue:hover { background: var(--orange); color: var(--ink); }
+  .btn:focus-visible { clip-path: none; }
+
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; flex-wrap: wrap; padding-top: 14px; padding-bottom: 14px; position: sticky; top: 0; z-index: 20; background: var(--paper); max-width: none; border-bottom: 3px solid var(--ink); }
+  .brand { display: flex; align-items: center; gap: 10px; font-family: var(--display); font-weight: 800; font-size: 30px; line-height: 1; }
+  .nav-links { display: flex; gap: 6px 26px; flex-wrap: wrap; font-weight: 600; font-size: 16px; }
+  .nav-links a { padding: 4px 0; border-bottom: 3px solid transparent; }
+  .nav-links a:hover { border-bottom-color: var(--orange); }
+
+  /* hero */
+  .hero { position: relative; background: var(--blue); overflow: hidden; margin-left: calc(var(--gut) * -1); padding-left: var(--gut); }
+  .hero::after { /* stripes turn the corner and run under the hero */
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 30px;
+    background: linear-gradient(0deg, var(--orange) 0 8px, var(--paper) 8px 12px, var(--ink) 12px 30px); opacity: 1; z-index: 1; }
+  .hero-inner { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 40px; align-items: center; padding-top: 64px; padding-bottom: 92px; position: relative; z-index: 2; }
+  .plate { display: inline-block; align-self: flex-start; background: var(--paper); color: var(--ink); font-family: var(--display); font-weight: 800; font-size: 22px; line-height: 1; padding: 9px 18px 8px; border: 3px solid var(--ink); transform: skewX(-8deg); }
+  .plate span { display: inline-block; transform: skewX(8deg); }
+  .hero-copy { display: flex; flex-direction: column; gap: 22px; }
+  .hero h1 { font-size: clamp(56px, 8.2vw, 124px); line-height: 0.92; font-style: italic; }
+  .hero-copy p { margin: 0; font-size: 19px; line-height: 1.65; color: var(--ink); max-width: 52ch; }
+  .hero-actions { display: flex; gap: 22px 28px; flex-wrap: wrap; align-items: center; }
+  .text-go { font-weight: 700; font-size: 18px; border-bottom: 3px solid var(--ink); padding-bottom: 1px; }
+  .text-go:hover { border-bottom-color: var(--orange); }
+  .hero-photo { position: relative; aspect-ratio: 4/3; }
+  .hero-photo::before { content: ""; position: absolute; inset: -14px -40px -14px -22px; background: linear-gradient(100deg, var(--orange) 0 9%, var(--paper) 9% 11.5%, var(--ink) 11.5% 100%); clip-path: polygon(8% 0, 100% 0, 100% 100%, 0 100%); }
+  .hero-photo img { position: relative; width: 100%; height: 100%; object-fit: cover; display: block; clip-path: polygon(15% 0, 100% 0, 100% 100%, 6% 100%); background: var(--asphalt); }
+  /* the one orchestrated moment: stripes sweep in on load */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-photo::before { animation: sweep 0.9s cubic-bezier(.2,.8,.2,1) both; }
+    .hero-photo img { animation: sweep 0.9s 0.12s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes sweep { from { transform: translateX(60px); opacity: 0; } to { transform: none; opacity: 1; } }
+  }
+
+  section { padding-top: 84px; padding-bottom: 12px; }
+  .kicker { font-weight: 700; font-size: 17px; color: var(--muted); margin: 0 0 8px; }
+  h2.title { font-size: clamp(38px, 5.6vw, 68px); line-height: 0.95; }
+
+  #about .intro { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 36px 64px; align-items: start; }
+  #about .intro p { margin: 0; line-height: 1.75; font-size: 18px; }
+  .specs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: 56px; border-top: 3px solid var(--ink); }
+  .spec { padding: 26px 28px 8px 0; position: relative; }
+  .spec + .spec { padding-left: 28px; border-left: 1px solid var(--line); }
+  .spec .icon { width: 46px; height: 46px; background: var(--ink); display: flex; align-items: center; justify-content: center; clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%); margin-bottom: 16px; }
+  .spec:nth-child(2) .icon { background: var(--blue); }
+  .spec:nth-child(3) .icon { background: var(--orange); }
+  .spec:nth-child(1) .icon svg * { stroke: var(--paper); }
+  .spec:nth-child(1) .icon svg circle { fill: var(--paper); }
+  .card-title { font-family: var(--display); font-weight: 800; font-size: 32px; line-height: 1; margin-bottom: 10px; }
+  .card-body { color: var(--muted); font-size: 16.5px; line-height: 1.7; }
+
+  /* steps: grid-position numbers */
+  .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; margin-top: 44px; counter-reset: s; }
+  .step { padding: 0 24px 0 0; position: relative; }
+  .step-num { display: inline-block; background: var(--ink); color: var(--paper); font-family: var(--display); font-weight: 800; font-style: italic; font-size: 44px; line-height: 1; padding: 10px 22px 8px 16px; clip-path: polygon(0 0, 100% 0, calc(100% - 12px) 100%, 0 100%); }
+  .step:nth-child(2) .step-num { background: var(--blue); color: var(--ink); }
+  .step:nth-child(3) .step-num { background: var(--orange); color: var(--ink); }
+  .step:nth-child(4) .step-num { background: var(--asphalt); }
+  .step-title { margin-top: 18px; font-family: var(--display); font-weight: 800; font-size: 30px; line-height: 1; }
+  .step-body { margin-top: 8px; font-size: 16px; line-height: 1.7; color: var(--muted); }
+
+  /* the entry ticket */
+  #next .ticket-wrap { filter: drop-shadow(0 7px 0 rgba(20,32,43,0.16)); }
+  .ticket { display: grid; grid-template-columns: minmax(0, 1fr) 260px; background: #fff; color: var(--ink);
+    -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 12px) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 24px 12px repeat-x;
+            mask: linear-gradient(#000 0 0) top / 100% calc(100% - 12px) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 24px 12px repeat-x; }
+  .ticket-main { padding: 36px 40px 48px; border-top: 14px solid var(--ink); position: relative; }
+  .ticket-main::before { content: ""; position: absolute; left: 0; right: 0; top: -14px; height: 14px; background: linear-gradient(90deg, var(--blue) 0 33%, var(--orange) 33% 66%, var(--ink) 66%); }
+  .ticket-label { font-weight: 700; font-size: 17px; color: var(--muted); }
+  .next-date { font-family: var(--display); font-weight: 800; font-style: italic; font-size: clamp(64px, 9vw, 120px); line-height: 0.9; margin: 6px 0 16px; }
+  .next-loc { font-size: 18px; line-height: 1.6; margin: 0; }
+  .perks { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px 10px; }
+  .perks li { border: 2px solid var(--ink); padding: 3px 12px; font-weight: 600; font-size: 15.5px; }
+  .ticket-stub { position: relative; border-left: 4px dashed var(--ink); border-top: 14px solid var(--orange); background: #fff; padding: 36px 28px 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 18px; }
+  .ticket-stub::before, .ticket-stub::after { content: ""; position: absolute; left: -17px; width: 30px; height: 30px; border-radius: 50%; background: var(--paper); }
+  .ticket-stub::before { top: -14px; transform: translateY(-50%); top: -0px; margin-top: -0px; }
+  .ticket-stub::before { top: -8px; }
+  .ticket-stub::after { bottom: 3px; }
+  .admit { font-family: var(--display); font-weight: 800; font-size: 34px; line-height: 1; margin: 0; }
+  .admit small { display: block; font-family: 'Source Sans 3', sans-serif; font-weight: 600; font-size: 15px; color: var(--muted); margin-top: 6px; }
+
+  /* galleries */
+  .gallery-head { display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 8px 32px; }
+  .gallery-head .note { font-size: 16px; color: var(--muted); max-width: 44ch; margin: 0; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin-top: 32px; }
+  .tank { position: relative; overflow: hidden; background: var(--asphalt); aspect-ratio: 4/3; margin: 0; }
+  .tank img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .tank .cap { position: absolute; left: 0; bottom: 0; background: var(--ink); color: var(--paper); font-weight: 600; font-size: 15px; line-height: 1.2; padding: 8px 18px 8px 12px; border-left: 8px solid var(--orange); clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 100%, 0 100%); }
+  #gallery .tank:nth-child(1) { grid-column: span 3; aspect-ratio: 4/3; }
+  #gallery .tank:nth-child(2) { grid-column: span 3; }
+  #gallery .tank:nth-child(3) { grid-column: span 6; aspect-ratio: 21/9; }
+  #last-time .tank:nth-child(1) { grid-column: span 4; aspect-ratio: 16/10; }
+  #last-time .tank:nth-child(2) { grid-column: span 2; aspect-ratio: auto; }
+  #last-time .tank:nth-child(3) { grid-column: span 2; aspect-ratio: auto; min-height: 220px; }
+  #last-time .tank:nth-child(4) { grid-column: span 4; aspect-ratio: 16/10; }
+  #last-time .tank:nth-child(2) .cap { border-left-color: var(--blue); }
+  #last-time .tank:nth-child(4) .cap { border-left-color: var(--blue); }
+
+  .host { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 48px; align-items: center; }
+  .host-photo { aspect-ratio: 1; position: relative; }
+  .host-photo::before { content: ""; position: absolute; inset: 0; transform: translate(-12px, 12px); background: var(--orange); clip-path: polygon(16% 0, 100% 0, 84% 100%, 0 100%); }
+  .host-photo img { position: relative; width: 100%; height: 100%; object-fit: cover; display: block; clip-path: polygon(16% 0, 100% 0, 84% 100%, 0 100%); background: var(--asphalt); }
+  .host-copy h2 { font-size: clamp(40px, 5vw, 60px); margin-bottom: 12px; }
+  .host-copy p { margin: 0 0 14px; line-height: 1.75; color: var(--muted); }
+
+  #faq .faq-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 32px 64px; }
+  #faq .faq-head { position: sticky; top: 100px; align-self: start; }
+  .faq-item { border-top: 3px solid var(--ink); padding: 18px 0 28px; }
+  .faq-item:first-child { border-top-color: var(--orange); }
+  .faq-q { font-family: var(--display); font-weight: 800; font-size: 30px; line-height: 1.05; margin: 0; }
+  .faq-a { margin: 10px 0 0; color: var(--muted); line-height: 1.75; font-size: 17px; }
+
+  .join { margin-top: 84px; margin-left: calc(var(--gut) * -1); padding: 72px 28px 76px calc(var(--gut) + 28px); background: var(--blue); position: relative; }
+  .join-inner { max-width: 1144px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px 64px; align-items: end; }
+  .join h2 { font-size: clamp(44px, 6.4vw, 84px); line-height: 0.92; font-style: italic; }
+  .join p { margin: 14px 0 0; font-size: 18px; color: var(--ink); }
+  .join form { display: flex; gap: 14px 18px; flex-wrap: wrap; align-items: center; }
+  .join input[type=email] { flex: 1 1 240px; min-width: 0; padding: 14px 16px; border: 3px solid var(--ink); border-radius: 0; font-size: 18px; font-family: inherit; background: var(--paper); color: var(--ink); }
+  .join input[type=email]::placeholder { color: #55626d; }
+
+  .sponsors { padding-top: 84px; padding-bottom: 84px; }
+  .sponsor-grid { margin-top: 24px; border-top: 3px solid var(--ink); }
+  .sponsor-card { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 4px 48px; padding: 20px 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .sponsor-name { font-family: var(--display); font-weight: 800; font-size: 32px; line-height: 1; }
+  .sponsor-role { font-weight: 700; font-size: 16px; color: var(--muted); margin-top: 6px; }
+  .sponsor-body { color: var(--muted); font-size: 16.5px; line-height: 1.7; }
+
+  footer.wrap { margin-left: calc(var(--gut) * -1); padding-left: calc(var(--gut) + 28px); padding-right: 28px; padding-top: 30px; padding-bottom: 34px; background: var(--asphalt); color: #e6ebed; max-width: none; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px 32px; font-size: 16px; position: relative; z-index: 31; border-top: 8px solid var(--orange); }
+  footer .links { display: flex; gap: 8px 26px; flex-wrap: wrap; }
+  footer a:hover { color: var(--blue); }
+  footer a { text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; }
+  footer a:hover { text-decoration-color: var(--blue); }
+
+  .skip-link { position: absolute; left: 12px; top: -80px; background: var(--ink); color: var(--paper); padding: 10px 16px; font-weight: 700; z-index: 100; }
+  .skip-link:focus { top: 12px; }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+  @media (max-width: 960px) {
+    .hero-inner { grid-template-columns: 1fr; padding-top: 44px; padding-bottom: 80px; }
+    .hero-photo { margin: 0 8px 0 18px; }
+    .hero-photo::before { inset: -12px -8px -12px -16px; }
+    #about .intro, #faq .faq-grid, .join-inner { grid-template-columns: 1fr; }
+    #faq .faq-head { position: static; }
+    .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 0; }
+    .specs { grid-template-columns: 1fr; }
+    .spec + .spec { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); margin-top: 20px; padding-top: 26px; }
+    .host { grid-template-columns: 220px minmax(0, 1fr); gap: 32px; }
+  }
+  @media (max-width: 680px) {
+    :root { --gut: 22px; }
+    body { font-size: 16.5px; }
+    body::before { width: 16px; background: linear-gradient(90deg, var(--blue) 0 9px, var(--paper) 9px 11px, var(--orange) 11px 16px); }
+    .wrap { padding-left: 18px; padding-right: 18px; }
+    .nav-links { order: 3; width: 100%; gap: 4px 18px; font-size: 15px; }
+    .brand { font-size: 26px; }
+    section { padding-top: 60px; }
+    .ticket { grid-template-columns: 1fr; }
+    .ticket-main { padding: 28px 22px 30px; }
+    .ticket-stub { border-left: 0; border-top: 4px dashed var(--ink); padding: 26px 22px 40px; }
+    .ticket-stub::before, .ticket-stub::after { top: -17px; bottom: auto; left: -16px; }
+    .ticket-stub::after { left: auto; right: -16px; }
+    .gallery-grid { gap: 10px; }
+    #gallery .tank:nth-child(n), #last-time .tank:nth-child(n) { grid-column: span 6; aspect-ratio: 4/3; min-height: 0; }
+    .steps { grid-template-columns: 1fr; }
+    .host { grid-template-columns: 1fr; }
+    .host-photo { max-width: 260px; }
+    .sponsor-card { grid-template-columns: 1fr; gap: 6px; }
+    .join { padding-left: calc(var(--gut) + 18px); padding-right: 18px; }
+    .hero-photo { margin-left: 14px; }
   }
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 
+
 <header class="nav wrap">
-  <div style="display:flex; align-items:center; gap:12px;">
-    <svg width="28" height="28" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M3 15C3 15 8 6 16 6C22 6 26 10.5 27 15C26 19.5 22 24 16 24C8 24 3 15 3 15Z" stroke="var(--accent)" stroke-width="2"/>
-      <circle cx="20" cy="14" r="1.4" fill="var(--accent)"/>
-      <path d="M3 15C3 15 5 12 5 15C5 18 3 15 3 15Z" fill="var(--accent)"/>
+  <div class="brand">
+    <svg width="34" height="34" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M3 15C3 15 8 6 16 6C22 6 26 10.5 27 15C26 19.5 22 24 16 24C8 24 3 15 3 15Z" stroke="var(--ink)" stroke-width="2"/>
+      <circle cx="20" cy="14" r="1.4" fill="var(--ink)"/>
+      <path d="M3 15C3 15 5 12 5 15C5 18 3 15 3 15Z" fill="var(--orange)"/>
     </svg>
-    <div style="font-family:'Fraunces',serif; font-weight:700; font-size:21px;">Fish &amp; Coffee</div>
+    <div>Fish &amp; Coffee</div>
   </div>
   <nav class="nav-links" aria-label="Main">
-    <a class="link" href="#about">About</a>
-    <a class="link" href="#how">How it works</a>
-    <a class="link" href="#next">Next Meetup</a>
-    <a class="link" href="#gallery">The Showroom</a>
-    <a class="link" href="#faq">FAQ</a>
-    <a class="link" href="#join">Join</a>
+    <a href="#about">About</a>
+    <a href="#how">How it works</a>
+    <a href="#next">Next Meetup</a>
+    <a href="#gallery">The Showroom</a>
+    <a href="#faq">FAQ</a>
+    <a href="#join">Join</a>
   </nav>
-  <a href="#join" class="btn" style="background:var(--accent); color:var(--bg); padding:11px 20px; border-radius:100px; font-size:14px; font-weight:600;">RSVP for the next one</a>
+  <a href="#join" class="btn small">RSVP for the next one</a>
 </header>
 <main id="main">
 <div class="hero">
-  <div class="wrap" style="display:flex; align-items:center; gap:56px; flex-wrap:wrap; padding:0;">
+  <div class="wrap hero-inner">
     <div class="hero-copy">
-      <div class="badge">San Diego · Est. 2026</div>
+      <div class="plate"><span>San Diego, est. 2026</span></div>
       <h1>Tanks, trims,<br>and a good pour.</h1>
       <p>A cars-and-coffee morning for aquascapers, hosted right in the showroom. Come see the tanks, trade trimmings, and nerd out over hardscape with the rest of San Diego's fishkeeping crowd — coffee's on us.</p>
       <div class="hero-actions">
-        <a href="#join" class="btn" style="background:var(--accent); color:var(--ink); padding:15px 28px; border-radius:100px; font-size:15px; font-weight:600;">Get meetup alerts</a>
-        <a href="#next" class="btn" style="border:1px solid rgba(250,247,240,0.3); color:var(--bg); padding:15px 28px; border-radius:100px; font-size:15px; font-weight:600;">See the next date</a>
+        <a href="#join" class="btn on-blue">Get meetup alerts</a>
+        <a href="#next" class="text-go">See the next date</a>
       </div>
     </div>
     <div class="hero-photo">
@@ -229,23 +347,25 @@
 </div>
 
 <section id="about" class="wrap">
-  <div style="max-width:680px;">
-    <div class="eyebrow">The concept</div>
-    <h2 style="margin-top:12px; font-size:clamp(28px,4vw,36px); line-height:1.2;">Same energy as cars &amp; coffee. Just swap the horsepower for hardscape.</h2>
-    <p style="margin-top:18px; font-size:16px; line-height:1.7; color:var(--muted);">Cars-and-coffee meetups work because nobody has to trailer their car anywhere — you just show up. Fish &amp; Coffee borrows that same idea for aquascaping: instead of everyone hauling glass, soil, and livestock across town, the showroom's own floor tanks and Hakkai builds do the showing off. You bring the parts that travel easily — plant trims, dry hardscape, a spare piece of gear — and a cup of coffee gives everyone a reason to actually stand around and talk instead of just scrolling past each other's tank shots online.</p>
+  <div class="intro">
+    <div>
+    <p class="kicker">The concept</p>
+    <h2 class="title">Same energy as cars &amp; coffee. Just swap the horsepower for hardscape.</h2>
+    </div>
+    <p>Cars-and-coffee meetups work because nobody has to trailer their car anywhere — you just show up. Fish &amp; Coffee borrows that same idea for aquascaping: instead of everyone hauling glass, soil, and livestock across town, the showroom's own floor tanks and Hakkai builds do the showing off. You bring the parts that travel easily — plant trims, dry hardscape, a spare piece of gear — and a cup of coffee gives everyone a reason to actually stand around and talk instead of just scrolling past each other's tank shots online.</p>
   </div>
-  <div class="cards">
-    <div class="card">
+  <div class="specs">
+    <div class="spec">
       <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M3 11C3 11 7 5 12 5C16 5 19.5 8 21 11C19.5 14 16 17 12 17C7 17 3 11 3 11Z" stroke="var(--ink)" stroke-width="1.8"/><circle cx="15" cy="10.5" r="1" fill="var(--ink)"/></svg></div>
       <div class="card-title">See the showroom</div>
       <div class="card-body">Walk the floor tanks and Hakkai builds up close, ask the team how they're run, and get ideas for your own setup at home.</div>
     </div>
-    <div class="card">
+    <div class="spec">
       <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 9H16V15C16 17.2 14.2 19 12 19H8C5.8 19 4 17.2 4 15V9Z" stroke="var(--ink)" stroke-width="1.8"/><path d="M16 10H18C19.1 10 20 10.9 20 12C20 13.1 19.1 14 18 14H16" stroke="var(--ink)" stroke-width="1.8"/><path d="M7 9V6M10 9V6" stroke="var(--ink)" stroke-width="1.8" stroke-linecap="round"/></svg></div>
       <div class="card-title">Trade trims &amp; coffee</div>
       <div class="card-body">Bring plant cuttings, dry goods, or DIY hardscape to swap — easy to carry in, no glass or livestock required. Coffee's courtesy of a different neighboring Convoy restaurant each meetup.</div>
     </div>
-    <div class="card">
+    <div class="spec">
       <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 4L14.2 9.3L20 10L15.6 13.6L17 19.2L12 16.1L7 19.2L8.4 13.6L4 10L9.8 9.3L12 4Z" stroke="var(--ink)" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
       <div class="card-title">Talk shop</div>
       <div class="card-body">Trim techniques, CO2 setups, stocking questions, gear swaps — an easygoing morning for every skill level, no sign-up required.</div>
@@ -253,9 +373,9 @@
   </div>
 </section>
 
-<section id="how" class="wrap" style="padding-top:0;">
-  <div class="eyebrow">How it works</div>
-  <h2 style="margin-top:12px; font-size:clamp(26px,3.6vw,32px); max-width:600px;">Four steps, zero pressure.</h2>
+<section id="how" class="wrap">
+  <p class="kicker">How it works</p>
+  <h2 class="title">Four steps, zero pressure.</h2>
   <div class="steps">
     <div class="step">
       <div class="step-num">01</div>
@@ -280,21 +400,27 @@
   </div>
 </section>
 
-<section id="next" class="wrap" style="padding-top:0;">
-  <div class="next">
-    <div style="flex:1 1 280px;">
-      <div class="next-eyebrow">Next meetup</div>
-      <div class="next-date">Date TBD</div>
-      <div class="next-loc">Pet Zone Tropical Fish — Convoy St, San Diego<br>Free to attend · Coffee provided · Bring trims to swap, or just come look</div>
+<section id="next" class="wrap">
+  <div class="ticket-wrap">
+    <div class="ticket">
+      <div class="ticket-main">
+        <div class="ticket-label">Next meetup</div>
+        <div class="next-date">Date TBD</div>
+        <p class="next-loc">Pet Zone Tropical Fish — Convoy St, San Diego</p>
+        <ul class="perks"><li>Free to attend</li><li>Coffee provided</li><li>Bring trims to swap, or just come look</li></ul>
+      </div>
+      <div class="ticket-stub">
+        <p class="admit">Entry pass</p>
+        <a href="#join" class="btn">Get notified</a>
+      </div>
     </div>
-    <a href="#join" class="btn" style="background:var(--accent); color:var(--ink); padding:16px 30px; border-radius:100px; font-size:15px; font-weight:600; white-space:nowrap;">Get notified</a>
   </div>
 </section>
 
-<section id="gallery" class="wrap" style="padding-top:0;">
+<section id="gallery" class="wrap">
   <div class="gallery-head">
-    <h2 style="font-size:clamp(26px,3.6vw,32px);">The Convoy showroom</h2>
-    <div style="font-size:14px; color:var(--muted);">Where the meetup happens — floor tanks, hardscape, and the aquascapes on display</div>
+    <h2 class="title">The Convoy showroom</h2>
+    <p class="note">Where the meetup happens — floor tanks, hardscape, and the aquascapes on display</p>
   </div>
   <div class="gallery-grid">
     <div class="tank"><img width="675" height="900" decoding="async" src="images/showroom-storefront.jpg" alt="Pet Zone Tropical Fish storefront on Convoy St" loading="lazy"><div class="cap">The storefront</div></div>
@@ -303,10 +429,10 @@
   </div>
 </section>
 
-<section id="last-time" class="wrap" style="padding-top:0;">
+<section id="last-time" class="wrap">
   <div class="gallery-head">
-    <h2 style="font-size:clamp(26px,3.6vw,32px);">Last time at the shop</h2>
-    <div style="font-size:14px; color:var(--muted);">Our Dec 2025 cars &amp; coffee morning in the Pet Zone Convoy lot</div>
+    <h2 class="title">Last time at the shop</h2>
+    <p class="note">Our Dec 2025 cars &amp; coffee morning in the Pet Zone Convoy lot</p>
   </div>
   <div class="gallery-grid">
     <div class="tank"><img width="900" height="675" decoding="async" src="images/last-time-patio.jpg" alt="Coffee table and lounge chairs on the Pet Zone patio with an orange Corvette parked nearby" loading="lazy"><div class="cap">Coffee on the patio</div></div>
@@ -316,23 +442,26 @@
   </div>
 </section>
 
-<section id="host" class="wrap" style="padding-top:0;">
+<section id="host" class="wrap">
   <div class="host">
     <div class="host-photo">
       <img width="1100" height="825" decoding="async" src="images/showroom-planted-tank.jpg" alt="Close-up of a planted aquascape with small schooling fish at Pet Zone" loading="lazy">
     </div>
     <div class="host-copy">
-      <div class="eyebrow">Hosted by</div>
-      <h2 style="margin-top:10px; font-size:clamp(24px,3.2vw,30px);">Roger Ma</h2>
+      <p class="kicker">Hosted by</p>
+      <h2>Roger Ma</h2>
       <p>Roger runs Pet Zone Tropical Fish on Convoy St and started Fish &amp; Coffee to give San Diego's aquascaping community a regular, no-pressure place to gather — the same way car people already had cars-and-coffee. He's also behind the shop's Hakkai nature-aquarium builds, which anchor the showroom you'll walk through at every meetup.</p>
-      <p><a class="link" href="https://meetrogerma.com" style="color:var(--accent); font-weight:600;">More about Roger →</a></p>
+      <p><a class="link" href="https://meetrogerma.com" style="font-weight:700;">More about Roger</a></p>
     </div>
   </div>
 </section>
 
-<section id="faq" class="wrap" style="padding-top:0;">
-  <div class="eyebrow" style="text-align:center; display:block;">Questions</div>
-  <h2 style="margin-top:12px; margin-bottom:44px; font-size:clamp(26px,3.6vw,32px); text-align:center;">Good to know before you come</h2>
+<section id="faq" class="wrap">
+  <div class="faq-grid">
+  <div class="faq-head">
+    <p class="kicker">Questions</p>
+    <h2 class="title">Good to know before you come</h2>
+  </div>
   <div class="faq">
     <div class="faq-item">
       <p class="faq-q">Do I need to bring a tank?</p>
@@ -355,48 +484,50 @@
       <p class="faq-a">Pet Zone Tropical Fish on Convoy St in San Diego — the same shop that hosts the Hakkai nature-aquarium builds you'll see in the showroom.</p>
     </div>
   </div>
+  </div>
 </section>
 
 <section id="join" class="join">
-  <h2 style="font-size:clamp(28px,4vw,36px); max-width:600px;">Don't miss the next one.</h2>
+  <div class="join-inner">
+  <div>
+  <h2>Don't miss the next one.</h2>
   <p>One short email before each meetup — date, location, and that month's theme. No spam, no fish oil ads.</p>
+  </div>
   <form action="https://petzonesd.us18.list-manage.com/subscribe/post?u=304ce07a4c0d7302417650dcb&amp;id=20c199e55d&amp;f_id=0037afe6f0" method="post" target="_blank">
     <label for="email-signup" style="position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0);">Email address</label>
     <input id="email-signup" name="EMAIL" type="email" autocomplete="email" placeholder="you@email.com" required>
     <div aria-hidden="true" style="position:absolute; left:-5000px;"><input type="text" name="b_304ce07a4c0d7302417650dcb_20c199e55d" tabindex="-1" value=""></div>
-    <button type="submit" class="btn" style="background:var(--accent); color:var(--ink); border:none; padding:15px 26px; border-radius:100px; font-size:15px; font-weight:600; font-family:inherit;">Sign me up</button>
+    <button type="submit" class="btn on-blue">Sign me up</button>
   </form>
+  </div>
 </section>
 
-<section class="sponsors">
-  <div class="eyebrow" style="color:var(--muted);">Presented by</div>
+<section class="sponsors wrap">
+  <p class="kicker">Presented by</p>
   <div class="sponsor-grid">
     <div class="sponsor-card">
-      <div class="sponsor-name">Pet Zone Tropical Fish</div>
-      <div class="sponsor-role">Host venue</div>
+      <div><div class="sponsor-name">Pet Zone Tropical Fish</div><div class="sponsor-role">Host venue</div></div>
       <div class="sponsor-body">The Convoy St shop where Fish &amp; Coffee happens every time — floor tanks, showroom, and the space itself.</div>
     </div>
     <div class="sponsor-card">
-      <div class="sponsor-name">Hakkai</div>
-      <div class="sponsor-role">Nature aquascapes</div>
+      <div><div class="sponsor-name">Hakkai</div><div class="sponsor-role">Nature aquascapes</div></div>
       <div class="sponsor-body">The nature-aquarium builds on display in the showroom, the centerpiece of every meetup.</div>
     </div>
     <div class="sponsor-card">
-      <div class="sponsor-name">Aquascape Supply Co.</div>
-      <div class="sponsor-role">Gear &amp; hardscape</div>
+      <div><div class="sponsor-name">Aquascape Supply Co.</div><div class="sponsor-role">Gear &amp; hardscape</div></div>
       <div class="sponsor-body">Supplies the hardscape and gear that make it into trade tables and talk-shop conversations.</div>
     </div>
     <div class="sponsor-card">
-      <div class="sponsor-name">A different neighbor each meetup</div>
-      <div class="sponsor-role">Coffee</div>
+      <div><div class="sponsor-name">A different neighbor each meetup</div><div class="sponsor-role">Coffee</div></div>
       <div class="sponsor-body">A neighboring Convoy restaurant keeps everyone caffeinated, and the featured coffee partner rotates. Each meetup announcement names who's pouring.</div>
     </div>
   </div>
 </section>
+
 </main>
 
 <footer class="wrap">
-  <div>© 2026 Fish &amp; Coffee · San Diego</div>
+  <div>© 2026 Fish &amp; Coffee, San Diego</div>
   <div class="links">
     <a class="link" href="#about">About</a>
     <a class="link" href="#join">Contact</a>
