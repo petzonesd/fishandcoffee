@@ -1,9 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://fishandcoffee.com/</loc>
-    <lastmod>2026-10-12</lastmod>
+    <lastmod>2026-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://fishandcoffee.com/images/showroom-style-guide.jpg</image:loc>
+      <image:caption>Aquascape display tanks and style-guide posters in the Pet Zone Convoy showroom</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://fishandcoffee.com/images/showroom-storefront.jpg</image:loc>
+      <image:caption>Pet Zone Tropical Fish storefront on Convoy St</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://fishandcoffee.com/images/showroom-aisle.jpg</image:loc>
+      <image:caption>Inside the Pet Zone showroom: tanks, hardscape and plants along the aisle</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://fishandcoffee.com/images/showroom-nature-tank.jpg</image:loc>
+      <image:caption>A planted nature aquascape display tank at Pet Zone</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://fishandcoffee.com/images/showroom-planted-tank.jpg</image:loc>
+      <image:caption>Close-up of a planted aquascape with small schooling fish at Pet Zone</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://fishandcoffee.com/images/last-time-patio.jpg</image:loc>
+      <image:caption>Coffee table and lounge chairs on the Pet Zone patio</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://fishandcoffee.com/images/last-time-lot.jpg</image:loc>
+      <image:caption>Sports cars lined up in the Pet Zone parking lot at sunrise</image:caption>
+    </image:image>
   </url>
 </urlset>
