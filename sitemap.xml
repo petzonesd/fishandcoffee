@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://fishandcoffee.com/</loc>
-    <lastmod>2026-10-14</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -32,6 +32,14 @@
     <image:image>
       <image:loc>https://fishandcoffee.com/images/last-time-lot.jpg</image:loc>
       <image:caption>Sports cars lined up in the Pet Zone parking lot at sunrise</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://fishandcoffee.com/images/last-time-porsche.jpg</image:loc>
+      <image:caption>Silver Porsche with its engine bay open at the Pet Zone meetup</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://fishandcoffee.com/images/last-time-corvette.jpg</image:loc>
+      <image:caption>Orange Corvette parked in front of the Pet Zone showroom</image:caption>
     </image:image>
   </url>
 </urlset>
